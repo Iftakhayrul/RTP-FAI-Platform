@@ -1,0 +1,83 @@
+{
+  "name": "AMLCluster",
+  "type": "object",
+  "properties": {
+    "cluster_id": {
+      "type": "string"
+    },
+    "risk_score": {
+      "type": "number"
+    },
+    "typology": {
+      "type": "string",
+      "enum": [
+        "Fan-in",
+        "Fan-out",
+        "Cycle",
+        "Layering",
+        "Hub",
+        "Burst Chain"
+      ]
+    },
+    "account_count": {
+      "type": "number"
+    },
+    "total_flow_amount": {
+      "type": "number"
+    },
+    "hub_accounts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fan_out_count": {
+      "type": "number"
+    },
+    "fan_in_count": {
+      "type": "number"
+    },
+    "cycle_indicator": {
+      "type": "boolean"
+    },
+    "burst_velocity": {
+      "type": "number"
+    },
+    "layering_depth": {
+      "type": "number"
+    },
+    "transfers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from_account": {
+            "type": "string"
+          },
+          "to_account": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Monitoring",
+        "Under Review",
+        "Escalated",
+        "Closed"
+      ]
+    }
+  },
+  "required": [
+    "cluster_id",
+    "typology"
+  ]
+}

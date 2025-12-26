@@ -1,0 +1,93 @@
+{
+  "name": "AMLCase",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "cluster_id": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ]
+    },
+    "typology": {
+      "type": "string"
+    },
+    "cluster_score": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Open",
+        "In Progress",
+        "Pending Review",
+        "Filed SAR",
+        "Closed"
+      ]
+    },
+    "assigned_reviewer": {
+      "type": "string"
+    },
+    "narrative_notes": {
+      "type": "string"
+    },
+    "evidence_checklist": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "linked_accounts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_action": {
+      "type": "string",
+      "enum": [
+        "Continue Monitoring",
+        "Enhanced Due Diligence",
+        "File SAR",
+        "Close Case"
+      ]
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "case_id",
+    "cluster_id"
+  ]
+}

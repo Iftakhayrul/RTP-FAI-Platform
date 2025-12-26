@@ -1,0 +1,51 @@
+{
+  "name": "AuditLog",
+  "type": "object",
+  "properties": {
+    "log_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "Transaction",
+        "FraudAlert",
+        "AMLCluster",
+        "AMLCase",
+        "Model"
+      ]
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "model_version": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "details": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "log_id",
+    "action"
+  ]
+}

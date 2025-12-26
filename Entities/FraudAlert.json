@@ -1,0 +1,102 @@
+{
+  "name": "FraudAlert",
+  "type": "object",
+  "properties": {
+    "alert_id": {
+      "type": "string"
+    },
+    "tx_id": {
+      "type": "string"
+    },
+    "risk_score": {
+      "type": "number"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "Approve",
+        "Challenge",
+        "Decline"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Open",
+        "Investigating",
+        "Resolved",
+        "Escalated"
+      ]
+    },
+    "assigned_analyst": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ]
+    },
+    "sla_deadline": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "resolution": {
+      "type": "string",
+      "enum": [
+        "Confirmed Fraud",
+        "False Positive",
+        "Chargeback",
+        "Recovered"
+      ]
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "alert_id",
+    "tx_id",
+    "risk_score"
+  ]
+}

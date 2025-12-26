@@ -1,0 +1,84 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "tx_id": {
+      "type": "string",
+      "description": "Unique transaction identifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "merchant": {
+      "type": "string"
+    },
+    "merchant_category": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "Card",
+        "ACH",
+        "Wire",
+        "Instant"
+      ]
+    },
+    "country": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "customer_id": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "risk_score": {
+      "type": "number"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "Approve",
+        "Challenge",
+        "Decline"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_fraud": {
+      "type": "boolean"
+    },
+    "velocity_10min": {
+      "type": "number"
+    },
+    "avg_amount_30d": {
+      "type": "number"
+    },
+    "device_change_flag": {
+      "type": "boolean"
+    },
+    "geo_distance_km": {
+      "type": "number"
+    },
+    "merchant_risk": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "tx_id",
+    "amount",
+    "channel"
+  ]
+}
